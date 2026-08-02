@@ -212,6 +212,22 @@ qonos_endpoint = Opt(
     default="",
 )
 
+cdn_swift_endpoint = Opt(
+    name="cdn_swift_endpoint",
+    description=(
+        "Optional override for the CDN-enabled Swift endpoint used to enable/disable "
+        "CDN on object storage containers and to read the public CDN URLs. When left "
+        "empty (the default), the CDN endpoint is derived automatically from the "
+        "object-store endpoint registered in Keystone by swapping the first hostname "
+        "label to 'cdn-swift' and using port 8444, which keeps it correct across "
+        "environments (dev.dfw3, iad3, sjc3, ...). Only the scheme and host[:port] of "
+        "this override are used; the account path always comes from the object-store "
+        "endpoint. For example: https://cdn-swift.api.dev.dfw3.rackspacecloud.com:8444"
+    ),
+    schema=StrictStr,
+    default="",
+)
+
 GROUP_NAME = __name__.split(".")[-1]
 ALL_OPTS = (
     enforce_new_defaults,
@@ -235,6 +251,7 @@ ALL_OPTS = (
     reclaim_instance_interval,
     default_domain,
     qonos_endpoint,
+    cdn_swift_endpoint,
 )
 
 __all__ = ("GROUP_NAME", "ALL_OPTS")
