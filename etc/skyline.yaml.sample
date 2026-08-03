@@ -66,6 +66,7 @@ openstack:
   system_user_password: ''
   default_domain: Default
   qonos_endpoint: ''
+  cdn_swift_endpoint: ''
 setting:
   base_settings:
   - flavor_families

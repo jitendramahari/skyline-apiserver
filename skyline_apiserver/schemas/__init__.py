@@ -49,6 +49,11 @@ from .message_banner import (
     MessageBanners,
     UpdateMessageBanner,
 )
+from .object_storage import (
+    ObjectStoreContainer,
+    ObjectStoreContainers,
+    UpdateContainerCDN,
+)
 from .policy import Policies, PoliciesRules
 from .policy_manager import Operation, OperationsSchema, ScopeTypesSchema
 from .prometheus import (
