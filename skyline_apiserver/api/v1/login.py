@@ -144,6 +144,8 @@ async def _patch_profile(profile: schemas.Profile, global_request_id: str) -> sc
 
         profile.default_project_id = default_project_id
 
+        profile.qonos_user_id = CONF.openstack.qonos_user_id or None
+
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

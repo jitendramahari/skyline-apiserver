@@ -212,6 +212,17 @@ qonos_endpoint = Opt(
     default="",
 )
 
+qonos_user_id = Opt(
+    name="qonos_user_id",
+    description=(
+        "Keystone user ID of the qonos service user. Used as the trustee when "
+        "project users create trusts for scheduled actions. Set per environment. "
+        "When empty, trust create cannot resolve a trustee."
+    ),
+    schema=StrictStr,
+    default="",
+)
+
 cdn_swift_endpoint = Opt(
     name="cdn_swift_endpoint",
     description=(
@@ -251,6 +262,7 @@ ALL_OPTS = (
     reclaim_instance_interval,
     default_domain,
     qonos_endpoint,
+    qonos_user_id,
     cdn_swift_endpoint,
 )
 

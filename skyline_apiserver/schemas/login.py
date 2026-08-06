@@ -95,6 +95,9 @@ class Profile(PayloadBase):
     endpoints: Optional[Dict[str, Any]] = Field(None, description="Keystone endpoints")
     projects: Optional[Dict[str, Any]] = Field(None, description="User projects")
     default_project_id: Optional[str] = Field(None, description="User default project ID")
+    qonos_user_id: Optional[str] = Field(
+        None, description="Configured qonos service user ID for trust trustee"
+    )
     version: str = Field(..., description="Version")
 
     def toPayLoad(self) -> Payload:
