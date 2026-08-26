@@ -17,6 +17,7 @@ from __future__ import annotations
 from typing import Any, Optional
 
 from cinderclient.client import Client as CinderClient
+from freezerclient.v2.client import Client as FreezerClient
 from glanceclient.client import Client as GlanceClient
 from keystoneauth1.access.access import AccessInfoV3
 from keystoneauth1.identity.v3 import Password, Token
@@ -176,5 +177,18 @@ async def neutron_client(
         session=session,
         endpoint_override=endpoint,
         global_request_id=global_request_id,
+    )
+    return client
+
+
+async def freezer_client(
+    session: Session,
+    region: str,
+    global_request_id: Optional[str] = None,
+) -> Any:
+    endpoint = await get_endpoint(region, "backup", session=session)
+    client = FreezerClient(
+        session=session,
+        endpoint=endpoint,
     )
     return client
