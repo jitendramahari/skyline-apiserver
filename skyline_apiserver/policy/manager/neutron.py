@@ -1820,7 +1820,7 @@ list_rules = (
     ),
     base.APIRule(
         name="get_endpoint_group",
-        check_str=("rule:admin_or_owner"),
+        check_str=("rule:admin_only or ((role:member or role:_member_ or role:reader) and project_id:%(project_id)s)"),
         description="Get VPN endpoint groups",
         scope_types=["project"],
         operations=[{"method": "GET", "path": "/vpn/endpoint-groups"}, {"method": "GET", "path": "/vpn/endpoint-groups/{id}"}],
@@ -1848,7 +1848,7 @@ list_rules = (
     ),
     base.APIRule(
         name="get_ikepolicy",
-        check_str=("rule:admin_or_owner"),
+        check_str=("rule:admin_only or ((role:member or role:_member_ or role:reader) and project_id:%(project_id)s)"),
         description="Get IKE policyies",
         scope_types=["project"],
         operations=[{"method": "GET", "path": "/vpn/ikepolicies"}, {"method": "GET", "path": "/vpn/ikepolicies/{id}"}],
@@ -1876,7 +1876,7 @@ list_rules = (
     ),
     base.APIRule(
         name="get_ipsecpolicy",
-        check_str=("rule:admin_or_owner"),
+        check_str=("rule:admin_only or ((role:member or role:_member_ or role:reader) and project_id:%(project_id)s)"),
         description="Get IPsec policies",
         scope_types=["project"],
         operations=[{"method": "GET", "path": "/vpn/ipsecpolicies"}, {"method": "GET", "path": "/vpn/ipsecpolicies/{id}"}],
@@ -1904,7 +1904,7 @@ list_rules = (
     ),
     base.APIRule(
         name="get_ipsec_site_connection",
-        check_str=("rule:admin_or_owner"),
+        check_str=("rule:admin_only or ((role:member or role:_member_ or role:reader) and project_id:%(project_id)s)"),
         description="Get IPsec site connections",
         scope_types=["project"],
         operations=[{"method": "GET", "path": "/vpn/ipsec-site-connections"}, {"method": "GET", "path": "/vpn/ipsec-site-connections/{id}"}],
@@ -1932,7 +1932,7 @@ list_rules = (
     ),
     base.APIRule(
         name="get_vpnservice",
-        check_str=("rule:admin_or_owner"),
+        check_str=("rule:admin_only or ((role:member or role:_member_ or role:reader) and project_id:%(project_id)s)"),
         description="Get VPN services",
         scope_types=["project"],
         operations=[{"method": "GET", "path": "/vpn/vpnservices"}, {"method": "GET", "path": "/vpn/vpnservices/{id}"}],
