@@ -118,6 +118,7 @@ service_mapping = Opt(
     ),
     schema=Dict[StrictStr, StrictStr],
     default={
+        "backup": "freezer",
         "baremetal": "ironic",
         "compute": "nova",
         "container": "zun",

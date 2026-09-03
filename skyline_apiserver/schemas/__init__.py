@@ -65,3 +65,22 @@ from .prometheus import (
     PrometheusQueryResult,
 )
 from .setting import Setting, Settings, UpdateSetting
+from .freezer import (
+    FreezerActionCreate,
+    FreezerActionResponse,
+    FreezerActionsResponse,
+    FreezerBackupRestore,
+    FreezerBackupsResponse,
+    FreezerClientResponse,
+    FreezerClientsResponse,
+    FreezerCreatedResponse,
+    FreezerDisableBackupRequest,
+    FreezerEnableBackupRequest,
+    FreezerEnableBackupResponse,
+    FreezerJobCreate,
+    FreezerJobResponse,
+    FreezerJobSchedule,
+    FreezerJobsResponse,
+    FreezerMessageResponse,
+    FreezerResumeBackupRequest,
+)

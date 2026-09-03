@@ -17,6 +17,7 @@ from fastapi import APIRouter
 from skyline_apiserver.api.v1 import (
     contrib,
     extension,
+    freezer,
     login,
     message_banner,
     object_storage,
@@ -34,3 +35,4 @@ api_router.include_router(policy.router, tags=["Policy"])
 api_router.include_router(setting.router, tags=["Setting"])
 api_router.include_router(message_banner.router, tags=["Message Banner"])
 api_router.include_router(object_storage.router, tags=["Object Storage"])
+api_router.include_router(freezer.router, tags=["Freezer"])
