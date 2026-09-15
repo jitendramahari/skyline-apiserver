@@ -94,3 +94,7 @@ setting:
   - nvidia_t4
   usb_models:
   - usb_c
+
+# UI visibility only. The console maps names to panels and applies defaults.
+# Example: features: {compute_images: false, storage_swift_cdn: false}
+features: {}

@@ -122,8 +122,13 @@ class Configuration:
                 raise ValueError("Load config file error")
 
         for group in self._groups.values():
+            values = self.config.get(group.name)
+            if values is None:
+                values = {}
+            if not isinstance(values, dict):
+                raise ValueError(f"{group.name} must be a mapping")
             for opt in group._opts.values():
-                value = self.config.get(group.name, {}).get(opt.name)
+                value = values.get(opt.name)
                 opt.load(value)
 
     def cleanup(self) -> None:

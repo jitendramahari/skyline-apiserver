@@ -18,7 +18,7 @@ import os
 
 from skyline_apiserver.config.base import Configuration, Group
 
-from . import default, openstack, setting
+from . import default, features, openstack, setting
 
 CONF = Configuration()
 
@@ -33,6 +33,7 @@ def configure(project: str, setup: bool = True) -> None:
     CONF(groups)
     if setup:
         CONF.setup(project, os.environ.copy())
+        features.validate_features(CONF.config)
 
 
 __all__ = ("CONF", "configure")
